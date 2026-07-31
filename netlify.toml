@@ -1,0 +1,9 @@
+# Netlify deployment config for SPA (React + Vite)
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

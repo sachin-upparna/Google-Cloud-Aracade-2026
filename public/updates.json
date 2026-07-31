@@ -1,0 +1,94 @@
+{
+  "announcements": [
+    "🎉 Welcome to the Google Cloud Arcade Community Progress Dashboard!",
+    "🚀 Track your learning journey, earn Skill Badges, and build your cloud skills.",
+    "🏅 Make sure your Google Cloud Skills Boost profile is set to public to sync your progress.",
+    "💙 Learn • Build • Grow Together!"
+  ],
+  "motivationalMessages": [
+    "One Arcade Game today is better than none.",
+    "Small progress each day leads to big achievements.",
+    "Consistency beats intensity.",
+    "Keep learning. Keep building.",
+    "Every Skill Badge earned is real cloud expertise you own forever."
+  ],
+  "quickLinks": [
+    {
+      "title": "Google Cloud Skills Boost",
+      "url": "https://www.cloudskillsboost.google",
+      "description": "Access your labs, Arcade games, and quest courses.",
+      "category": "Portal"
+    },
+    {
+      "title": "Google Cloud Arcade",
+      "url": "https://go.cloudskillsboost.google/arcade",
+      "description": "Explore active games, badge challenges, and prize tiers.",
+      "category": "Arcade"
+    },
+    {
+      "title": "Skill Badge Catalog",
+      "url": "https://www.cloudskillsboost.google/catalog",
+      "description": "Browse hands-on labs and earn official skill badges.",
+      "category": "Catalog"
+    },
+    {
+      "title": "Google Developer Profile",
+      "url": "https://developers.google.com/profile",
+      "description": "View your official developer badges and activity.",
+      "category": "Profile"
+    }
+  ],
+  "learningResources": [
+    {
+      "title": "Google Cloud Learning Paths",
+      "url": "https://www.cloudskillsboost.google/paths",
+      "description": "Structured learning roadmaps from beginner to Cloud Architect."
+    },
+    {
+      "title": "Google Cloud Documentation",
+      "url": "https://cloud.google.com/docs",
+      "description": "Comprehensive reference documentation for all Google Cloud services."
+    },
+    {
+      "title": "Gemini for Google Cloud Documentation",
+      "url": "https://cloud.google.com/gemini/docs",
+      "description": "Guides for leveraging Gemini in Google Cloud."
+    },
+    {
+      "title": "Vertex AI Documentation",
+      "url": "https://cloud.google.com/vertex-ai/docs",
+      "description": "Build, deploy, and scale machine learning models on Vertex AI."
+    },
+    {
+      "title": "Google AI Studio",
+      "url": "https://aistudio.google.com/",
+      "description": "Prototype and build rapidly with Gemini models."
+    },
+    {
+      "title": "Gemini API Documentation",
+      "url": "https://ai.google.dev/",
+      "description": "Official documentation and SDKs for the Gemini API."
+    },
+    {
+      "title": "Agent Development Kit (ADK) Documentation",
+      "url": "https://google.github.io/adk-docs/",
+      "description": "Documentation for building AI agents with Google's ADK framework."
+    }
+  ],
+  "latestUpdates": [
+    {
+      "id": "1",
+      "tag": "Arcade",
+      "date": "2026",
+      "title": "Google Cloud Arcade Active",
+      "description": "Complete Arcade Games and Skill Badges to boost your Progress Score on the dashboard."
+    },
+    {
+      "id": "2",
+      "tag": "Milestone",
+      "date": "2026",
+      "title": "GEAR & Skill Badges",
+      "description": "Earn Skill Badges and verify your GEAR badge to advance through milestone tiers."
+    }
+  ]
+}

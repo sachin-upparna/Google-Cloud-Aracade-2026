@@ -1,6 +1,6 @@
 /**
  * Footer.jsx
- * Minimal program footer. Clean, no decorative shapes.
+ * Community Program Footer — No copyright branding.
  */
 
 import React from 'react';
@@ -16,7 +16,7 @@ export default function Footer() {
           {/* Left */}
           <div>
             <p className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>
-              Google Cloud Arcade Facilitator Program 2026
+              Google Cloud Arcade Community Progress Portal 2026
             </p>
             <p className="text-xs mt-1" style={{ color: 'var(--text-tertiary)' }}>
               Facilitators: Sachin Upparna · Vikas A. L.
@@ -26,13 +26,13 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Right: Google four-color dots */}
+          {/* Right: Four-color dots */}
           <div className="flex items-center gap-1.5">
             {['#1a73e8', '#d93025', '#f9ab00', '#188038'].map(c => (
               <div key={c} className="w-2 h-2 rounded-full" style={{ background: c }} />
             ))}
             <span className="ml-2 text-xs" style={{ color: 'var(--text-tertiary)' }}>
-              Google Cloud
+              Community Portal
             </span>
           </div>
         </div>
@@ -42,7 +42,7 @@ export default function Footer() {
           style={{ borderColor: 'var(--border-subtle)' }}
         >
           <p className="text-xs" style={{ color: 'var(--text-tertiary)' }}>
-            © 2026 Google Cloud Arcade Facilitator Program. Participant data is used for progress tracking only.
+            Community-managed Google Cloud Arcade progress tracking. Participant data is used for progress tracking only.
           </p>
           <p className="text-xs" style={{ color: 'var(--text-tertiary)' }}>
             Keep learning, keep building.

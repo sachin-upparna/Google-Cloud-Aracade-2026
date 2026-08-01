@@ -96,6 +96,15 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
 
+/* ─── Hide scrollbar utility ─────────────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* ─── Card ─────────────────────────────────────────────────────── */
 .card {
   background: var(--surface-card);

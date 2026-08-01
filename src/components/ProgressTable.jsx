@@ -1,9 +1,8 @@
 /**
  * ProgressTable.jsx
  * Participant Leaderboard sorted using the official Google Points System:
- * 1. Total Points (Highest)
- * 2. Arcade Points (Tie-breaker)
- * 3. Arcade Games Completed (Tie-breaker)
+ * - Desktop: Wide data table (100% preserved)
+ * - Mobile: Responsive stacked participant cards (No horizontal scrolling)
  */
 
 import React, { useMemo, useState, useCallback } from 'react';
@@ -150,6 +149,7 @@ const StatusChips = ({ participant }) => {
   );
 };
 
+/* Desktop Progress Row */
 const ProgressRow = React.memo(({ participant, onSelect }) => {
   const initials = participant.name
     .split(' ')
@@ -218,7 +218,7 @@ const ProgressRow = React.memo(({ participant, onSelect }) => {
             {participant.arcadeGames}
             <span className="text-2xs font-normal text-gray-400">/12</span>
           </span>
-          <div className="hidden sm:block w-20 progress-track h-2">
+          <div className="w-20 progress-track h-2">
             <div
               className="progress-fill"
               style={{
@@ -237,7 +237,7 @@ const ProgressRow = React.memo(({ participant, onSelect }) => {
             {participant.skillBadges}
             <span className="text-2xs font-normal text-gray-400">/66</span>
           </span>
-          <div className="hidden sm:block w-20 progress-track h-2">
+          <div className="w-20 progress-track h-2">
             <div
               className="progress-fill"
               style={{
@@ -252,6 +252,111 @@ const ProgressRow = React.memo(({ participant, onSelect }) => {
   );
 });
 ProgressRow.displayName = 'ProgressRow';
+
+/* Mobile Participant Card */
+const MobileParticipantCard = React.memo(({ participant, onSelect }) => {
+  const initials = participant.name
+    .split(' ')
+    .map(n => n[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
+
+  const avatarBg = getAvatarBg(participant.name);
+  const medal = MEDALS[participant.rank];
+
+  return (
+    <div
+      onClick={() => onSelect(participant)}
+      tabIndex={0}
+      role="button"
+      className="card p-4 space-y-3 cursor-pointer hover:shadow-md transition-all duration-150 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl"
+    >
+      {/* Header: Rank + Avatar + Name + Total Points */}
+      <div className="flex items-start justify-between gap-2">
+        <div className="flex items-center gap-3 min-w-0 flex-1">
+          {/* Rank Badge */}
+          {medal ? (
+            <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full font-bold text-base flex-shrink-0 ${medal.bg}`}>
+              {medal.icon}
+            </span>
+          ) : (
+            <span className="inline-flex items-center justify-center w-8 h-8 rounded-full font-extrabold text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 flex-shrink-0 tabular-nums">
+              #{participant.rank}
+            </span>
+          )}
+
+          {/* Avatar + Name */}
+          <div className="flex items-center gap-2.5 min-w-0 flex-1">
+            <div className={`w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs shadow-sm flex-shrink-0 ${avatarBg}`}>
+              {initials}
+            </div>
+            <div className="min-w-0 flex-1">
+              <h3 className="font-bold text-sm text-gray-900 dark:text-white truncate">
+                {participant.name}
+              </h3>
+              <p className="text-2xs text-gray-400 dark:text-gray-500 tabular-nums">
+                Arcade: {participant.arcadePoints} | Bonus: {participant.milestoneBonus + participant.bonusMilestoneBonus}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Total Points Badge */}
+        <div className="text-right flex-shrink-0">
+          <span className="text-base font-extrabold text-blue-600 dark:text-blue-400 tabular-nums block">
+            {participant.totalPoints} <span className="text-2xs font-normal text-gray-400">pts</span>
+          </span>
+        </div>
+      </div>
+
+      {/* Status Chips */}
+      <StatusChips participant={participant} />
+
+      {/* Progress Bars Stack */}
+      <div className="grid grid-cols-2 gap-3 pt-1 text-xs">
+        {/* Arcade Games */}
+        <div className="space-y-1">
+          <div className="flex items-center justify-between text-2xs">
+            <span className="font-medium text-gray-500 dark:text-gray-400">Arcade Games</span>
+            <span className="font-bold text-gray-800 dark:text-gray-200 tabular-nums">
+              {participant.arcadeGames} <span className="text-gray-400 font-normal">/12</span>
+            </span>
+          </div>
+          <div className="progress-track h-2 bg-gray-100 dark:bg-gray-800">
+            <div
+              className="progress-fill"
+              style={{
+                width: `${Math.min((participant.arcadeGames / 12) * 100, 100)}%`,
+                background: participant.arcadeGames >= 6 ? '#188038' : '#f9ab00',
+              }}
+            />
+          </div>
+        </div>
+
+        {/* Skill Badges */}
+        <div className="space-y-1">
+          <div className="flex items-center justify-between text-2xs">
+            <span className="font-medium text-gray-500 dark:text-gray-400">Skill Badges</span>
+            <span className="font-bold text-gray-800 dark:text-gray-200 tabular-nums">
+              {participant.skillBadges} <span className="text-gray-400 font-normal">/66</span>
+            </span>
+          </div>
+          <div className="progress-track h-2 bg-gray-100 dark:bg-gray-800">
+            <div
+              className="progress-fill"
+              style={{
+                width: `${Math.min((participant.skillBadges / 66) * 100, 100)}%`,
+                background: '#188038',
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+});
+MobileParticipantCard.displayName = 'MobileParticipantCard';
 
 const COLUMNS = [
   { key: 'rank', label: 'Rank', sortable: true, width: '70px' },
@@ -326,10 +431,11 @@ export default function ProgressTable({ search, activeFilter, onSelectParticipan
           Showing <strong className="text-gray-800 dark:text-gray-200">{paginated.length}</strong> of{' '}
           <strong className="text-gray-800 dark:text-gray-200">{filtered.length}</strong> participants
         </span>
-        <span className="hidden sm:inline italic">Ranked by Total Points (Arcade + Milestone + Bonus)</span>
+        <span className="hidden sm:inline italic">Ranked by Total Points (Dense Ranking)</span>
       </div>
 
-      <div className="table-scroll card">
+      {/* Desktop Table View (hidden on mobile, block on md+) */}
+      <div className="hidden md:block table-scroll card">
         <table className="data-table">
           <thead>
             <tr>
@@ -356,6 +462,17 @@ export default function ProgressTable({ search, activeFilter, onSelectParticipan
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Mobile Stacked Cards View (block on mobile, hidden on md+) */}
+      <div className="block md:hidden space-y-3">
+        {paginated.map(p => (
+          <MobileParticipantCard
+            key={p.id}
+            participant={p}
+            onSelect={onSelectParticipant}
+          />
+        ))}
       </div>
 
       {paginated.length < filtered.length && (

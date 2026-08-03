@@ -1,11 +1,14 @@
 /**
  * TopLearnersPodium.jsx
- * Displays 🏆 Top 3 Featured Learners using official Total Points.
- * Desktop: Rank #2 (left), Rank #1 (center elevated), Rank #3 (right) - 100% preserved
- * Mobile: Perfectly centered cards (mx-auto max-w-md w-full) with equal margins and tailored scaling.
+ * Scalable Featured Learners Section with support for multiple tied participants per rank.
+ * Displays one grouped card per rank:
+ * 🥇 Rank #1 (Gold)
+ * 🥈 Rank #2 (Silver)
+ * 🥉 Rank #3 (Bronze)
+ * Displays list of tied participants (first 5 + expansion option) and total count.
  */
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useApp } from '../context/AppContext';
 
 // Material SVG Icons for Podium
@@ -33,9 +36,8 @@ const PODIUM_STYLES = {
     border: 'border-amber-400 dark:border-amber-500',
     headerBg: 'bg-gradient-to-r from-amber-50 to-yellow-100 dark:from-amber-950/60 dark:to-yellow-900/40',
     iconBg: 'bg-amber-500 text-white',
-    avatarBg: 'bg-gradient-to-tr from-amber-600 to-yellow-500 text-white',
     badgeBg: 'bg-amber-100 dark:bg-amber-900/80 text-amber-900 dark:text-amber-100 border border-amber-300 dark:border-amber-700',
-    label: '🥇 Rank #1 Leader',
+    label: '🥇 Rank #1',
     isPrimary: true,
     orderClass: 'order-1 md:order-2', // Top on Mobile, Center on Desktop
   },
@@ -44,9 +46,8 @@ const PODIUM_STYLES = {
     border: 'border-slate-300 dark:border-slate-700',
     headerBg: 'bg-gradient-to-r from-slate-50 to-gray-100 dark:from-slate-900/60 dark:to-gray-800/40',
     iconBg: 'bg-slate-600 text-white',
-    avatarBg: 'bg-gradient-to-tr from-slate-700 to-gray-500 text-white',
     badgeBg: 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700',
-    label: '🥈 Rank #2 Runner-up',
+    label: '🥈 Rank #2',
     isPrimary: false,
     orderClass: 'order-2 md:order-1', // Second on Mobile, Left on Desktop
   },
@@ -55,26 +56,24 @@ const PODIUM_STYLES = {
     border: 'border-orange-300 dark:border-orange-800',
     headerBg: 'bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-950/60 dark:to-amber-950/40',
     iconBg: 'bg-orange-600 text-white',
-    avatarBg: 'bg-gradient-to-tr from-orange-700 to-amber-600 text-white',
     badgeBg: 'bg-orange-100 dark:bg-orange-900/80 text-orange-900 dark:text-orange-100 border border-orange-300 dark:border-orange-700',
-    label: '🥉 Rank #3 Achiever',
+    label: '🥉 Rank #3',
     isPrimary: false,
     orderClass: 'order-3 md:order-3', // Third on Mobile, Right on Desktop
   },
 };
 
-const LearnerCard = ({ participant, rank }) => {
+const RankGroupCard = ({ rank, groupParticipants, onSelectParticipant }) => {
+  const [expanded, setExpanded] = useState(false);
   const style = PODIUM_STYLES[rank] || PODIUM_STYLES[3];
-  const isRank1 = rank === 1;
 
-  const initials = participant.name
-    .split(' ')
-    .map((n) => n[0])
-    .join('')
-    .slice(0, 2)
-    .toUpperCase();
+  if (!groupParticipants || groupParticipants.length === 0) return null;
 
-  const { arcadePoints, milestoneBonus, bonusMilestoneBonus, totalPoints } = participant;
+  const totalPoints = groupParticipants[0].totalPoints;
+  const count = groupParticipants.length;
+
+  const visibleParticipants = expanded ? groupParticipants : groupParticipants.slice(0, 5);
+  const hiddenCount = count - 5;
 
   return (
     <div
@@ -83,87 +82,92 @@ const LearnerCard = ({ participant, rank }) => {
       } ${style.orderClass}`}
     >
       {/* Header Banner */}
-      <div className={`${style.headerBg} px-3.5 py-2.5 md:px-5 md:py-3.5 flex items-center justify-between border-b ${style.border}`}>
+      <div className={`${style.headerBg} px-4 py-3 md:px-5 md:py-3.5 flex items-center justify-between border-b ${style.border}`}>
         <div className="flex items-center gap-2">
           <div className={`w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center shadow-sm ${style.iconBg}`}>
             {rank === 1 ? Icons.goldMedal : rank === 2 ? Icons.silverMedal : Icons.bronzeMedal}
           </div>
-          <span className="font-bold text-xs uppercase tracking-wider text-gray-800 dark:text-gray-200">
+          <span className="font-extrabold text-sm md:text-base tracking-tight text-gray-900 dark:text-white">
             {style.label}
           </span>
         </div>
-        <span className={`text-xs font-extrabold px-2.5 py-0.5 md:px-3 md:py-1 rounded-full tabular-nums ${style.badgeBg}`}>
+        <span className={`text-xs font-extrabold px-2.5 py-1 rounded-full tabular-nums ${style.badgeBg}`}>
           🏆 {totalPoints} Total Pts
         </span>
       </div>
 
       {/* Main Card Body */}
-      <div className={`${isRank1 ? 'p-4 md:p-5' : 'p-3.5 md:p-5'} space-y-3 md:space-y-4 bg-white dark:bg-gray-900`}>
-        <div className="flex items-center gap-3 md:gap-3.5">
-          <div className={`${isRank1 ? 'w-12 h-12 text-base md:w-14 md:h-14 md:text-lg' : 'w-11 h-11 text-sm md:w-14 md:h-14 md:text-lg'} rounded-full flex items-center justify-center font-extrabold flex-shrink-0 shadow-md ${style.avatarBg}`}>
-            {initials}
-          </div>
-          <div className="min-w-0 flex-1">
-            <h3 className={`${isRank1 ? 'text-base md:text-xl' : 'text-sm md:text-xl'} font-bold text-gray-900 dark:text-white truncate tracking-tight`}>
-              {participant.name}
-            </h3>
-            <p className="text-2xs md:text-xs text-gray-500 dark:text-gray-400 font-medium">
-              Community Rank #{participant.rank}
-            </p>
-          </div>
+      <div className="p-4 md:p-5 bg-white dark:bg-gray-900 flex-1 flex flex-col justify-between space-y-4">
+        <div className="space-y-2.5">
+          <p className="text-2xs font-extrabold uppercase tracking-wider text-gray-400 dark:text-gray-500">
+            Learners in this Rank ({count})
+          </p>
+
+          {/* Participant Names List */}
+          <ul className="space-y-2 text-xs md:text-sm font-semibold text-gray-900 dark:text-white">
+            {visibleParticipants.map((p) => (
+              <li key={p.id} className="flex items-center justify-between">
+                <button
+                  onClick={() => onSelectParticipant && onSelectParticipant(p)}
+                  className="flex items-center gap-2 text-left hover:text-blue-600 dark:hover:text-blue-400 transition-colors truncate min-w-0 group"
+                  title={`View details for ${p.name}`}
+                >
+                  <span className="text-amber-500 font-bold flex-shrink-0">•</span>
+                  <span className="truncate group-hover:underline">{p.name}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          {/* Expand / Collapse Button if > 5 */}
+          {count > 5 && (
+            <div className="pt-1.5">
+              <button
+                onClick={() => setExpanded(!expanded)}
+                className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors flex items-center gap-1"
+              >
+                <span>{expanded ? 'Collapse List' : `+${hiddenCount} more participants · View All`}</span>
+                <span>{expanded ? '▲' : '▼'}</span>
+              </button>
+            </div>
+          )}
         </div>
 
-        {/* Official Points Breakdown Grid */}
-        <div className="grid grid-cols-2 gap-1.5 md:gap-2 pt-0.5 md:pt-1 text-2xs md:text-xs">
-          <div className="bg-blue-50/60 dark:bg-blue-950/40 p-2 md:p-2.5 rounded-lg md:rounded-xl border border-blue-100 dark:border-blue-900/60">
-            <span className="text-2xs font-semibold text-blue-700 dark:text-blue-300 block truncate">🎮 Arcade Points</span>
-            <span className="font-extrabold text-blue-900 dark:text-blue-100 text-xs md:text-sm tabular-nums">
-              {arcadePoints} pts
-            </span>
-          </div>
-
-          <div className="bg-amber-50/60 dark:bg-amber-950/40 p-2 md:p-2.5 rounded-lg md:rounded-xl border border-amber-100 dark:border-amber-900/60">
-            <span className="text-2xs font-semibold text-amber-700 dark:text-amber-300 block truncate">⭐ Milestone Bonus</span>
-            <span className="font-extrabold text-amber-900 dark:text-amber-100 text-xs md:text-sm tabular-nums">
-              +{milestoneBonus} pts
-            </span>
-          </div>
-
-          <div className="bg-rose-50/60 dark:bg-rose-950/40 p-2 md:p-2.5 rounded-lg md:rounded-xl border border-rose-100 dark:border-rose-900/60">
-            <span className="text-2xs font-semibold text-rose-700 dark:text-rose-300 block truncate">🎁 Bonus Milestone</span>
-            <span className="font-extrabold text-rose-900 dark:text-rose-100 text-xs md:text-sm tabular-nums">
-              +{bonusMilestoneBonus} pts
-            </span>
-          </div>
-
-          <div className="bg-emerald-50/60 dark:bg-emerald-950/40 p-2 md:p-2.5 rounded-lg md:rounded-xl border border-emerald-100 dark:border-emerald-900/60">
-            <span className="text-2xs font-semibold text-emerald-700 dark:text-emerald-300 block truncate">🏆 Total Points</span>
-            <span className="font-extrabold text-emerald-900 dark:text-emerald-100 text-xs md:text-sm tabular-nums">
-              {totalPoints} pts
-            </span>
-          </div>
+        {/* Footer Count Badge */}
+        <div className="pt-3 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between text-2xs text-gray-500 dark:text-gray-400">
+          <span className="font-semibold text-gray-700 dark:text-gray-300">
+            {count} {count === 1 ? 'Participant' : 'Participants'}
+          </span>
+          <span className="italic text-gray-400">Click name to view status</span>
         </div>
       </div>
     </div>
   );
 };
 
-export default function TopLearnersPodium() {
+export default function TopLearnersPodium({ onSelectParticipant }) {
   const { participants, loading } = useApp();
 
-  const { topLearners } = useMemo(() => {
+  // Group participants by rank (Rank 1, Rank 2, Rank 3)
+  const rankGroups = useMemo(() => {
     if (!participants || participants.length === 0) {
-      return { topLearners: [] };
+      return { 1: [], 2: [], 3: [] };
     }
-    // Filter top 3 in strict rank order (1, 2, 3)
-    const top = participants.filter((p) => p.rank <= 3).sort((a, b) => a.rank - b.rank);
-    return { topLearners: top };
+
+    const groups = { 1: [], 2: [], 3: [] };
+    for (const p of participants) {
+      if (p.rank <= 3) {
+        if (!groups[p.rank]) groups[p.rank] = [];
+        groups[p.rank].push(p);
+      }
+    }
+    return groups;
   }, [participants]);
 
   if (loading) {
     return (
       <div className="space-y-4">
-        <h2 className="text-2xl font-extrabold text-gray-900 dark:text-white">🏆 Top 3 Featured Learners</h2>
+        <h2 className="text-2xl font-extrabold text-gray-900 dark:text-white">🏆 Featured Learners</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {Array.from({ length: 3 }).map((_, i) => (
             <div key={i} className="card p-6 h-56 skeleton rounded-2xl" />
@@ -173,27 +177,24 @@ export default function TopLearnersPodium() {
     );
   }
 
-  if (topLearners.length === 0) return null;
+  const hasAnyRank = rankGroups[1].length > 0 || rankGroups[2].length > 0 || rankGroups[3].length > 0;
+  if (!hasAnyRank) return null;
 
   return (
     <div className="space-y-6">
       <div>
         <h2 className="text-2xl font-extrabold text-gray-900 dark:text-white tracking-tight flex items-center gap-2">
-          🏆 Top 3 Featured Learners
+          🏆 Featured Learners
         </h2>
         <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-          Ranked by Total Points (Arcade Points + Milestone Bonus + Bonus Milestone)
+          Participants currently holding Rank #1, Rank #2, and Rank #3 based on Total Points.
         </p>
       </div>
 
-      <div className="flex flex-col md:grid md:grid-cols-3 gap-3.5 md:gap-6 items-end pt-2">
-        {topLearners.map((learner) => (
-          <LearnerCard
-            key={learner.id}
-            participant={learner}
-            rank={learner.rank}
-          />
-        ))}
+      <div className="flex flex-col md:grid md:grid-cols-3 gap-4 md:gap-6 md:items-start pt-2">
+        <RankGroupCard rank={1} groupParticipants={rankGroups[1]} onSelectParticipant={onSelectParticipant} />
+        <RankGroupCard rank={2} groupParticipants={rankGroups[2]} onSelectParticipant={onSelectParticipant} />
+        <RankGroupCard rank={3} groupParticipants={rankGroups[3]} onSelectParticipant={onSelectParticipant} />
       </div>
     </div>
   );

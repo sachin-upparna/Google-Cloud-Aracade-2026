@@ -3,7 +3,7 @@
  * Google Developer Community Progress Portal.
  * Features:
  * - Sticky Navigation Bar with smooth scroll & active section highlighting
- * - Top 3 Featured Learners Podium Showcase (Dense Ranking)
+ * - Scalable Featured Learners Podium Showcase (Supporting tied ranks per rank card)
  * - Static Community Milestone Guide
  * - Official Google Cloud Arcade Facilitator Points System
  * - Participant Progress Table & Detail Modal with Program Checklist
@@ -70,9 +70,9 @@ function AppContent() {
 
         <GradientDivider />
 
-        {/* ⭐ 2. Top 3 Featured Learners Podium Showcase */}
+        {/* ⭐ 2. Scalable Featured Learners Podium Showcase */}
         <section id="top-learners-podium">
-          <TopLearnersPodium />
+          <TopLearnersPodium onSelectParticipant={handleSelect} />
         </section>
 
         <GradientDivider />

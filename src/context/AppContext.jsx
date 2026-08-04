@@ -11,6 +11,7 @@ import { buildRankMap, computeMovement, getTopMovers } from '../utils/rankHelper
 const AppContext = createContext(null);
 
 const DEFAULT_UPDATES = {
+  lastUpdated: "4 August 2026 at 06:18 PM IST",
   announcements: ["🎉 Welcome to the Google Cloud Arcade Community Progress Dashboard!"],
   motivationalMessages: ["Keep learning and building your cloud skills."],
   quickLinks: [],
@@ -25,7 +26,7 @@ export const AppProvider = ({ children }) => {
   const [topMovers, setTopMovers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [lastUpdated, setLastUpdated] = useState(null);
+  const [lastUpdated, setLastUpdated] = useState(DEFAULT_UPDATES.lastUpdated);
   const [updatesData, setUpdatesData] = useState(DEFAULT_UPDATES);
 
   const [darkMode, setDarkMode] = useState(() => {
@@ -56,6 +57,9 @@ export const AppProvider = ({ children }) => {
         if (res.ok) {
           const data = await res.json();
           setUpdatesData(data);
+          if (data.lastUpdated) {
+            setLastUpdated(data.lastUpdated);
+          }
         }
       } catch (err) {
         console.warn('Could not load updates.json, using default fallback:', err);
@@ -74,31 +78,30 @@ export const AppProvider = ({ children }) => {
     setMovementMap(movement);
     setTopMovers(movers);
 
-    // Record timestamp of this update (IST)
-    const now = new Date();
-    const formatted = now.toLocaleString('en-IN', {
-      timeZone: 'Asia/Kolkata',
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: true,
-    });
-    setLastUpdated(`${formatted} IST`);
-
-    // Confetti for milestone participants on upload
-    if (fromUpload && Object.keys(previousRankMap).length > 0) {
-      const milestoneHitters = newParticipants.filter(p => {
-        const prev = previousRankMap[p.name.toLowerCase()];
-        return (p.arcadeGames === 6 || p.arcadeGames === 12) && !prev;
-      });
-      if (milestoneHitters.length > 0) {
-        setConfettiTrigger(Date.now());
-      }
-    }
-
+    // Only update timestamp on manual user upload, otherwise use push timestamp from updates.json
     if (fromUpload) {
+      const now = new Date();
+      const formatted = now.toLocaleString('en-IN', {
+        timeZone: 'Asia/Kolkata',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+      });
+      setLastUpdated(`${formatted} IST`);
+
+      if (Object.keys(previousRankMap).length > 0) {
+        const milestoneHitters = newParticipants.filter(p => {
+          const prev = previousRankMap[p.name.toLowerCase()];
+          return (p.arcadeGames === 6 || p.arcadeGames === 12) && !prev;
+        });
+        if (milestoneHitters.length > 0) {
+          setConfettiTrigger(Date.now());
+        }
+      }
+
       const newRankMap = buildRankMap(newParticipants);
       setPreviousRankMap(newRankMap);
       try { localStorage.setItem('gca-previous-ranks', JSON.stringify(newRankMap)); } catch {}

@@ -2,6 +2,7 @@
  * App.jsx
  * Google Developer Community Progress Portal.
  * Features:
+ * - Mandatory Disclaimer Modal on every page load / visit
  * - Sticky Navigation Bar with smooth scroll & active section highlighting
  * - Scalable Featured Learners Podium Showcase (Supporting tied ranks per rank card)
  * - Static Community Milestone Guide
@@ -22,6 +23,7 @@ import LatestUpdates from './components/LatestUpdates';
 import CommunityResources from './components/CommunityResources';
 import PointsSystemGuide from './components/PointsSystemGuide';
 import ParticipantModal from './components/ParticipantModal';
+import MandatoryDisclaimerModal from './components/MandatoryDisclaimerModal';
 import Footer from './components/Footer';
 import ConfettiEffect from './components/ConfettiEffect';
 
@@ -40,6 +42,9 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+      {/* Mandatory Disclaimer Modal on every visit/refresh */}
+      <MandatoryDisclaimerModal />
+
       <ConfettiEffect />
 
       {/* Sticky Public Header & Navbar */}

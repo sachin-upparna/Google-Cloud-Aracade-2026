@@ -6,6 +6,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../context/AppContext';
+import CountdownTimer from './CountdownTimer';
 
 export default function Hero() {
   const { lastUpdated, loading, updatesData } = useApp();
@@ -91,6 +92,9 @@ export default function Hero() {
             </div>
           )}
         </div>
+
+        {/* ⏳ Deadline Countdown Timer Section */}
+        <CountdownTimer />
 
         {/* Main Welcome Hero Content */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">

@@ -41,13 +41,42 @@ export default function CountdownTimer() {
 
   if (timeLeft.isEnded) {
     return (
-      <div className="bg-amber-500/20 backdrop-blur-md border border-amber-400/40 rounded-2xl p-4 sm:p-5 text-center text-white shadow-lg">
-        <span className="font-extrabold text-base sm:text-lg">
-          🏁 Google Cloud Arcade Cohort 2026 has concluded!
-        </span>
-        <p className="text-xs sm:text-sm text-amber-200 mt-1">
-          Thank you for building, learning, and participating! Final results are now being processed.
-        </p>
+      <div className="relative overflow-hidden bg-gradient-to-r from-blue-900/40 via-indigo-900/40 to-purple-900/40 backdrop-blur-md border-2 border-amber-400/50 rounded-2xl p-4 sm:p-5 shadow-xl text-white">
+        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div className="space-y-1.5 min-w-0 flex-1">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-3xs sm:text-2xs font-extrabold bg-amber-400 text-gray-900 uppercase tracking-wider shadow-sm">
+                🏆 Program Concluded
+              </span>
+              <span className="text-3xs sm:text-xs font-semibold text-amber-200">
+                Final Standings Updated • 15 September 2026
+              </span>
+            </div>
+            <h3 className="text-lg sm:text-2xl font-black tracking-tight text-white leading-snug">
+              🎉 Google Cloud Arcade Cohort 2026 Final Results Are Live!
+            </h3>
+            <p className="text-xs sm:text-sm text-blue-100 font-normal leading-relaxed">
+              The cohort concluded on <strong className="text-white">14 September 2026 at 23:59 GMT+5:30</strong>. All Arcade Games, Skill Badges, and milestone bonus points have been verified. Congratulations to all learners!
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 flex-shrink-0 pt-1 lg:pt-0">
+            <button
+              onClick={() => scrollToSection('top-learners-podium')}
+              className="px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-gray-900 font-extrabold text-xs flex items-center justify-center gap-1.5 transition-all shadow-md active:scale-[0.98]"
+            >
+              <span>⭐ Top Learners Podium</span>
+              <span>→</span>
+            </button>
+            <button
+              onClick={() => scrollToSection('progress-table')}
+              className="px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 border border-white/25 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-[0.98]"
+            >
+              <span>🏆 Full Leaderboard</span>
+              <span>→</span>
+            </button>
+          </div>
+        </div>
       </div>
     );
   }

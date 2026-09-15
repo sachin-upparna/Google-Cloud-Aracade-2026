@@ -53,7 +53,7 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     const fetchUpdates = async () => {
       try {
-        const res = await fetch('/updates.json');
+        const res = await fetch(`/updates.json?t=${Date.now()}`, { cache: 'no-store' });
         if (res.ok) {
           const data = await res.json();
           setUpdatesData(data);
@@ -114,7 +114,7 @@ export const AppProvider = ({ children }) => {
     const loadDefault = async () => {
       try {
         setLoading(true);
-        const response = await fetch('/leaderboard.csv');
+        const response = await fetch(`/leaderboard.csv?t=${Date.now()}`, { cache: 'no-store' });
         if (!response.ok) throw new Error('Could not load leaderboard.csv');
         const text = await response.text();
         const parsed = await parseCSV(text);

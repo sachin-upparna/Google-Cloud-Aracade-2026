@@ -106,7 +106,7 @@ const RankGroupCard = ({ rank, groupParticipants, onSelectParticipant }) => {
           {/* Participant Names List */}
           <ul className="space-y-2 text-xs md:text-sm font-semibold text-gray-900 dark:text-white">
             {visibleParticipants.map((p) => (
-              <li key={p.id} className="flex items-center justify-between">
+              <li key={p.id} className="flex items-center justify-between gap-2">
                 <button
                   onClick={() => onSelectParticipant && onSelectParticipant(p)}
                   className="flex items-center gap-2 text-left hover:text-blue-600 dark:hover:text-blue-400 transition-colors truncate min-w-0 group"
@@ -115,6 +115,9 @@ const RankGroupCard = ({ rank, groupParticipants, onSelectParticipant }) => {
                   <span className="text-amber-500 font-bold flex-shrink-0">•</span>
                   <span className="truncate group-hover:underline">{p.name}</span>
                 </button>
+                <span className="text-3xs font-semibold px-2 py-0.5 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 flex-shrink-0 whitespace-nowrap">
+                  {p.arcadeGames}G • {p.skillBadges}B
+                </span>
               </li>
             ))}
           </ul>

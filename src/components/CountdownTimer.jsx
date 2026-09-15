@@ -43,21 +43,31 @@ export default function CountdownTimer() {
     return (
       <div className="relative overflow-hidden bg-gradient-to-r from-blue-900/40 via-indigo-900/40 to-purple-900/40 backdrop-blur-md border-2 border-amber-400/50 rounded-2xl p-4 sm:p-5 shadow-xl text-white">
         <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-          <div className="space-y-1.5 min-w-0 flex-1">
+          <div className="space-y-2 min-w-0 flex-1">
             <div className="flex items-center gap-2 flex-wrap">
               <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-3xs sm:text-2xs font-extrabold bg-amber-400 text-gray-900 uppercase tracking-wider shadow-sm">
                 🏆 Program Concluded
               </span>
               <span className="text-3xs sm:text-xs font-semibold text-amber-200">
-                Final Standings Updated • 15 September 2026
+                Latest Progress Update • 15 September 2026
               </span>
             </div>
+            
             <h3 className="text-lg sm:text-2xl font-black tracking-tight text-white leading-snug">
-              🎉 Google Cloud Arcade Cohort 2026 Final Results Are Live!
+              🎉 Google Cloud Arcade Cohort 2026 Has Concluded!
             </h3>
+
             <p className="text-xs sm:text-sm text-blue-100 font-normal leading-relaxed">
-              The cohort concluded on <strong className="text-white">14 September 2026 at 23:59 GMT+5:30</strong>. All Arcade Games, Skill Badges, and milestone bonus points have been verified. Congratulations to all learners!
+              The cohort officially ended on <strong className="text-white">14 September 2026 at 23:59 GMT+5:30</strong>. Current leaderboard rankings reflect the latest progress report.
             </p>
+
+            {/* Note about Friday 18th September Official Final Results */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-amber-400/15 border border-amber-400/30 text-amber-200 text-xs font-semibold">
+              <span className="text-base flex-shrink-0">📢</span>
+              <span>
+                <strong>Note:</strong> Official final results will be out on <strong className="text-white underline decoration-amber-400">Friday, 18 September 2026</strong>.
+              </span>
+            </div>
           </div>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 flex-shrink-0 pt-1 lg:pt-0">

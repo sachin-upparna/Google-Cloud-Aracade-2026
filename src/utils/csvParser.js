@@ -125,11 +125,10 @@ export const computeTotalPoints = (arcadePoints, milestoneBonus, bonusMilestoneB
 export const assignRanks = (participants) => {
   if (!participants || participants.length === 0) return [];
 
-  // Sort by Total Points (desc), Arcade Points (desc), Arcade Games (desc)
+  // Sort strictly by Total Points (descending), then alphabetically by name for consistent ordering
   const sorted = [...participants].sort((a, b) => {
     if (b.totalPoints !== a.totalPoints) return b.totalPoints - a.totalPoints;
-    if (b.arcadePoints !== a.arcadePoints) return b.arcadePoints - a.arcadePoints;
-    return b.arcadeGames - a.arcadeGames;
+    return a.name.localeCompare(b.name);
   });
 
   const ranked = [];
@@ -140,13 +139,11 @@ export const assignRanks = (participants) => {
 
     if (i > 0) {
       const prev = sorted[i - 1];
-      const isSameScore =
-        prev.totalPoints === p.totalPoints &&
-        prev.arcadePoints === p.arcadePoints &&
-        prev.arcadeGames === p.arcadeGames;
+      // Standings are purely based on Total Points (same points = same rank)
+      const isSameScore = prev.totalPoints === p.totalPoints;
 
       if (!isSameScore) {
-        currentRank += 1; // Dense ranking: increment by 1, NEVER skip numbers!
+        currentRank += 1; // Dense ranking: increment by 1 for next unique score
       }
     }
 

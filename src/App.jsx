@@ -19,7 +19,6 @@ import TopLearnersPodium from './components/TopLearnersPodium';
 import FacilitatorsNote from './components/FacilitatorsNote';
 import SearchAndFilter from './components/SearchAndFilter';
 import ProgressTable from './components/ProgressTable';
-import LatestUpdates from './components/LatestUpdates';
 import CommunityResources from './components/CommunityResources';
 import PointsSystemGuide from './components/PointsSystemGuide';
 import ParticipantModal from './components/ParticipantModal';
@@ -115,16 +114,7 @@ function AppContent() {
           />
         </section>
 
-        <GradientDivider />
-
-        {/* 📢 5. Latest Updates & Reminders */}
-        <section id="latest-updates">
-          <LatestUpdates />
-        </section>
-
-        <GradientDivider />
-
-        {/* 📚 6. Portals & Verified Documentation */}
+        {/* 📚 5. Learning Resources & Documentation */}
         <section id="resources">
           <CommunityResources />
         </section>

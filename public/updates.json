@@ -1,18 +1,16 @@
 {
-  "lastUpdated": "15 September 2026 at 01:50 PM IST",
+  "lastUpdated": "18 September 2026 at 11:30 PM IST (Final Update)",
   "announcements": [
-    "📢 Official Google Cloud Arcade final results will be announced on Friday, 18 September 2026!",
-    "🎉 Welcome to the Google Cloud Arcade Community Progress Dashboard!",
-    "🚀 Track your learning journey, earn Skill Badges, and build your cloud skills.",
-    "🏅 Make sure your Google Cloud Skills Boost profile is set to public to sync your progress.",
-    "💙 Learn • Build • Grow Together!"
+    "🏆 Final Update (18th September 2026): Google Cloud Arcade 2026 leaderboard is officially finalized!",
+    "🙏 A heartfelt thank you from Facilitators Sachin Upparna & Vikas A. L. for being an amazing part of this journey!",
+    "⚠️ Important Notice: This community portal will be officially closed on or before the 2nd week of October 2026."
   ],
   "motivationalMessages": [
-    "One Arcade Game today is better than none.",
-    "Small progress each day leads to big achievements.",
-    "Consistency beats intensity.",
-    "Keep learning. Keep building.",
-    "Every Skill Badge earned is real cloud expertise you own forever."
+    "Congratulations on completing your cloud learning journey!",
+    "Every Skill Badge earned is real cloud expertise you own forever.",
+    "Proud of the dedication and hard work shown by this entire cohort.",
+    "Keep learning. Keep building. Keep growing!",
+    "Thank you for being part of the Google Cloud Arcade 2026 community."
   ],
   "quickLinks": [
     {
@@ -80,17 +78,17 @@
   "latestUpdates": [
     {
       "id": "1",
-      "tag": "Arcade",
-      "date": "2026",
-      "title": "Google Cloud Arcade Active",
-      "description": "Complete Arcade Games and Skill Badges to boost your Progress Score on the dashboard."
+      "tag": "Final Update",
+      "date": "18 Sep 2026",
+      "title": "Final Leaderboard Published",
+      "description": "All Arcade Games, Skill Badges, and milestone bonuses have been finalized for the cohort."
     },
     {
       "id": "2",
-      "tag": "Milestone",
-      "date": "2026",
-      "title": "GEAR & Skill Badges",
-      "description": "Earn Skill Badges and verify your GEAR badge to advance through milestone tiers."
+      "tag": "Notice",
+      "date": "Oct 2026",
+      "title": "Portal Closure Notice",
+      "description": "This community tracking portal will be officially closed on or before the 2nd week of October 2026."
     }
   ]
 }

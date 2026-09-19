@@ -16,7 +16,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import StatsCards from './components/StatsCards';
 import TopLearnersPodium from './components/TopLearnersPodium';
-import MilestoneGuide from './components/MilestoneGuide';
+import FacilitatorsNote from './components/FacilitatorsNote';
 import SearchAndFilter from './components/SearchAndFilter';
 import ProgressTable from './components/ProgressTable';
 import LatestUpdates from './components/LatestUpdates';
@@ -82,9 +82,10 @@ function AppContent() {
 
         <GradientDivider />
 
-        {/* 🎯 3. Static Community Milestone Guide */}
-        <section id="milestone-guide">
-          <MilestoneGuide />
+        {/* 🙏 3. Facilitators' Thank You Note & Portal Closure Notice */}
+        <section id="facilitators-note">
+          <div id="milestone-guide" className="-mt-20 pt-20" />
+          <FacilitatorsNote />
         </section>
 
         <GradientDivider />

@@ -45,44 +45,51 @@ export default function CountdownTimer() {
         <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div className="space-y-2 min-w-0 flex-1">
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-3xs sm:text-2xs font-extrabold bg-amber-400 text-gray-900 uppercase tracking-wider shadow-sm">
-                🏆 Program Concluded
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-3xs sm:text-2xs font-extrabold bg-emerald-400 text-gray-900 uppercase tracking-wider shadow-sm">
+                🏁 Final Official Update
               </span>
-              <span className="text-3xs sm:text-xs font-semibold text-amber-200">
-                Latest Progress Update • 15 September 2026
+              <span className="text-3xs sm:text-xs font-semibold text-emerald-200">
+                Published 18 September 2026
               </span>
             </div>
             
             <h3 className="text-lg sm:text-2xl font-black tracking-tight text-white leading-snug">
-              🎉 Google Cloud Arcade Cohort 2026 Has Concluded!
+              🎉 Final Google Cloud Arcade 2026 Standings Are Live!
             </h3>
 
             <p className="text-xs sm:text-sm text-blue-100 font-normal leading-relaxed">
-              The cohort officially ended on <strong className="text-white">14 September 2026 at 23:59 GMT+5:30</strong>. Current leaderboard rankings reflect the latest progress report.
+              This is the <strong>official final update</strong> of the Google Cloud Arcade 2026 leaderboard. All Arcade Games, Skill Badges, and milestone bonus points are finalized and locked in.
             </p>
 
-            {/* Note about Friday 18th September Official Final Results */}
+            {/* Note about October 2nd week closure */}
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-amber-400/15 border border-amber-400/30 text-amber-200 text-xs font-semibold">
-              <span className="text-base flex-shrink-0">📢</span>
+              <span className="text-base flex-shrink-0">⚠️</span>
               <span>
-                <strong>Note:</strong> Official final results will be out on <strong className="text-white underline decoration-amber-400">Friday, 18 September 2026</strong>.
+                <strong>Portal Closure Notice:</strong> This website will be officially closed on or before the <strong className="text-white underline decoration-amber-400">2nd week of October 2026</strong>.
               </span>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 flex-shrink-0 pt-1 lg:pt-0">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2.5 flex-shrink-0 pt-1 lg:pt-0">
             <button
               onClick={() => scrollToSection('top-learners-podium')}
-              className="px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-gray-900 font-extrabold text-xs flex items-center justify-center gap-1.5 transition-all shadow-md active:scale-[0.98]"
+              className="px-3.5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-gray-900 font-extrabold text-xs flex items-center justify-center gap-1.5 transition-all shadow-md active:scale-[0.98]"
             >
-              <span>⭐ Top Learners Podium</span>
+              <span>⭐ Featured Learners</span>
+              <span>→</span>
+            </button>
+            <button
+              onClick={() => scrollToSection('facilitators-note')}
+              className="px-3.5 py-2.5 rounded-xl bg-blue-500 hover:bg-blue-400 text-white font-extrabold text-xs flex items-center justify-center gap-1.5 transition-all shadow-md active:scale-[0.98]"
+            >
+              <span>🙏 Facilitators' Note</span>
               <span>→</span>
             </button>
             <button
               onClick={() => scrollToSection('progress-table')}
-              className="px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 border border-white/25 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-[0.98]"
+              className="px-3.5 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 border border-white/25 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-[0.98]"
             >
-              <span>🏆 Full Leaderboard</span>
+              <span>🏆 Leaderboard</span>
               <span>→</span>
             </button>
           </div>

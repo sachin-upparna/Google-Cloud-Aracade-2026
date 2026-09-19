@@ -179,8 +179,8 @@ export default function Hero() {
               <strong>Last Updated:</strong> {lastUpdated ?? (loading ? 'Loading…' : 'Regularly updated')}
             </span>
           </div>
-          <p className="italic text-blue-200">
-            Data is refreshed whenever the latest facilitator report is uploaded. If your recent progress is not yet visible, it will appear in the next update.
+          <p className="italic text-amber-200 font-medium">
+            This is the final official update for the cohort. The portal will be closed on or before the 2nd week of October 2026.
           </p>
         </div>
 

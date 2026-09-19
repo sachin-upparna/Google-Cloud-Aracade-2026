@@ -21,7 +21,7 @@ const NAV_ITEMS = [
   { id: 'overview', label: 'Overview', icon: '🏠' },
   { id: 'community-stats', label: 'Community Statistics', icon: '📊' },
   { id: 'top-learners-podium', label: 'Featured Learners', icon: '⭐' },
-  { id: 'milestone-guide', label: 'Milestone Guide', icon: '🎯' },
+  { id: 'facilitators-note', label: 'Facilitators Note', icon: '🙏' },
   { id: 'progress-table', label: 'Leaderboard', icon: '🏆' },
   { id: 'resources', label: 'Learning Resources', icon: '📚' },
   { id: 'points-guide', label: 'Points System', icon: '💯' },

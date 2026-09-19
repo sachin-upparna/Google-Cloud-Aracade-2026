@@ -42,10 +42,10 @@ export default function Footer() {
           style={{ borderColor: 'var(--border-subtle)' }}
         >
           <p className="text-xs" style={{ color: 'var(--text-tertiary)' }}>
-            Community-managed Google Cloud Arcade progress tracking. Participant data is used for progress tracking only.
+            Community-managed Google Cloud Arcade progress tracking. This portal will be officially closed on or before the 2nd week of October 2026.
           </p>
-          <p className="text-xs" style={{ color: 'var(--text-tertiary)' }}>
-            Keep learning, keep building.
+          <p className="text-xs font-semibold text-amber-600 dark:text-amber-400">
+            Thank you for being part of this cohort! 💙
           </p>
         </div>
       </div>

@@ -99,88 +99,102 @@ export default function StatsCards() {
 
   const metrics = [
     {
-      label: 'Total Participants',
+      label: '👨‍🚀 Cadets Enrolled',
       value: stats.total ?? 0,
-      sublabel: 'Active cohort learners',
+      sublabel: 'Verified cohort explorers',
       icon: Icons.people,
       theme: {
-        border: 'border-blue-200 dark:border-blue-800',
+        border: 'border-blue-200 dark:border-blue-900/60 hover:border-blue-400 dark:hover:border-blue-500',
         text: 'text-blue-600 dark:text-blue-400',
-        iconBg: 'bg-blue-600 text-white',
+        iconBg: 'bg-blue-600 text-white shadow-blue-500/20 shadow-md',
       },
     },
     {
-      label: 'Total Arcade Games',
+      label: '🎮 Quests Conquered',
       value: stats.totalArcadeGames ?? 0,
-      sublabel: 'Completed games',
+      sublabel: 'Completed Arcade games',
       icon: Icons.games,
       theme: {
-        border: 'border-emerald-200 dark:border-emerald-800',
+        border: 'border-emerald-200 dark:border-emerald-900/60 hover:border-emerald-400 dark:hover:border-emerald-500',
         text: 'text-emerald-600 dark:text-emerald-400',
-        iconBg: 'bg-emerald-600 text-white',
+        iconBg: 'bg-emerald-600 text-white shadow-emerald-500/20 shadow-md',
       },
     },
     {
-      label: 'Total Skill Badges',
+      label: '🛡️ Skill Badges Secured',
       value: stats.totalSkillBadges ?? 0,
-      sublabel: 'Community badges',
+      sublabel: 'Official cloud credentials',
       icon: Icons.badges,
       theme: {
-        border: 'border-amber-200 dark:border-amber-800',
+        border: 'border-amber-200 dark:border-amber-900/60 hover:border-amber-400 dark:hover:border-amber-500',
         text: 'text-amber-600 dark:text-amber-400',
-        iconBg: 'bg-amber-600 text-white',
+        iconBg: 'bg-gradient-to-br from-amber-500 to-yellow-500 text-slate-950 shadow-amber-500/20 shadow-md',
       },
     },
     {
-      label: 'General Milestones',
+      label: '🎯 Milestone Cadets',
       value: stats.milestoneCount ?? 0,
-      sublabel: 'Earned milestone learners',
+      sublabel: 'Milestones 1, 2, 3 achieved',
       icon: Icons.star,
       theme: {
-        border: 'border-orange-200 dark:border-orange-800',
+        border: 'border-orange-200 dark:border-orange-900/60 hover:border-orange-400 dark:hover:border-orange-500',
         text: 'text-orange-600 dark:text-orange-400',
-        iconBg: 'bg-orange-600 text-white',
+        iconBg: 'bg-orange-600 text-white shadow-orange-500/20 shadow-md',
       },
     },
     {
-      label: 'Bonus Milestones',
+      label: '🎁 Bonus Milestones',
       value: stats.bonusMilestoneCount ?? 0,
       sublabel: '+10 Bonus point earners',
       icon: Icons.gift,
       theme: {
-        border: 'border-rose-200 dark:border-rose-800',
+        border: 'border-rose-200 dark:border-rose-900/60 hover:border-rose-400 dark:hover:border-rose-500',
         text: 'text-rose-600 dark:text-rose-400',
-        iconBg: 'bg-rose-600 text-white',
+        iconBg: 'bg-rose-600 text-white shadow-rose-500/20 shadow-md',
       },
     },
     {
-      label: 'AI Agent Verified',
+      label: '🤖 AI Agents Verified',
       value: stats.aiAgentCount ?? 0,
-      sublabel: 'AI Agent verified learners',
+      sublabel: 'GenAI Agent badge earners',
       icon: Icons.aiBot,
       theme: {
-        border: 'border-blue-200 dark:border-blue-800',
-        text: 'text-blue-600 dark:text-blue-400',
-        iconBg: 'bg-blue-600 text-white',
+        border: 'border-indigo-200 dark:border-indigo-900/60 hover:border-indigo-400 dark:hover:border-indigo-500',
+        text: 'text-indigo-600 dark:text-indigo-400',
+        iconBg: 'bg-indigo-600 text-white shadow-indigo-500/20 shadow-md',
       },
     },
   ];
 
   if (loading) {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <div key={i} className="card p-5 h-28 skeleton rounded-2xl" />
-        ))}
+      <div className="space-y-4">
+        <div className="h-6 w-64 bg-gray-200 dark:bg-gray-800 rounded skeleton" />
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="card p-5 h-28 skeleton rounded-2xl" />
+          ))}
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
-      {metrics.map((m, i) => (
-        <StatCard key={m.label} {...m} delay={i * 40} />
-      ))}
+    <div className="space-y-5">
+      <div>
+        <h2 className="text-2xl font-black text-gray-900 dark:text-white tracking-tight flex items-center gap-2">
+          📊 Mission Telemetry & Cohort Milestones
+        </h2>
+        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+          Final cumulative achievements earned across all 344 cloud cadets in the 2026 flight log.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+        {metrics.map((m, i) => (
+          <StatCard key={m.label} {...m} delay={i * 40} />
+        ))}
+      </div>
     </div>
   );
 }

@@ -33,31 +33,31 @@ const Icons = {
 const PODIUM_STYLES = {
   1: {
     accent: '#f59e0b',
-    border: 'border-amber-400 dark:border-amber-500',
-    headerBg: 'bg-gradient-to-r from-amber-50 to-yellow-100 dark:from-amber-950/60 dark:to-yellow-900/40',
-    iconBg: 'bg-amber-500 text-white',
-    badgeBg: 'bg-amber-100 dark:bg-amber-900/80 text-amber-900 dark:text-amber-100 border border-amber-300 dark:border-amber-700',
-    label: '🥇 Rank #1',
+    border: 'border-2 border-amber-400 dark:border-amber-400 shadow-xl shadow-amber-500/10',
+    headerBg: 'bg-gradient-to-r from-amber-500/20 via-yellow-400/25 to-amber-500/15 dark:from-amber-950/80 dark:to-yellow-900/60',
+    iconBg: 'bg-gradient-to-br from-amber-400 to-yellow-500 text-slate-950 shadow-md font-black',
+    badgeBg: 'bg-amber-100 dark:bg-amber-900/80 text-amber-950 dark:text-amber-100 border border-amber-300 dark:border-amber-700 font-extrabold',
+    label: '🥇 Grand Champion • Rank #1',
     isPrimary: true,
     orderClass: 'order-1 md:order-2', // Top on Mobile, Center on Desktop
   },
   2: {
     accent: '#64748b',
-    border: 'border-slate-300 dark:border-slate-700',
-    headerBg: 'bg-gradient-to-r from-slate-50 to-gray-100 dark:from-slate-900/60 dark:to-gray-800/40',
-    iconBg: 'bg-slate-600 text-white',
-    badgeBg: 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700',
-    label: '🥈 Rank #2',
+    border: 'border-2 border-slate-300 dark:border-slate-600 shadow-md',
+    headerBg: 'bg-gradient-to-r from-slate-100 to-gray-200 dark:from-slate-900/80 dark:to-gray-800/60',
+    iconBg: 'bg-slate-600 text-white shadow-md font-black',
+    badgeBg: 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-slate-100 border border-slate-300 dark:border-slate-600 font-bold',
+    label: '🥈 1st Runner-Up • Rank #2',
     isPrimary: false,
     orderClass: 'order-2 md:order-1', // Second on Mobile, Left on Desktop
   },
   3: {
     accent: '#d97706',
-    border: 'border-orange-300 dark:border-orange-800',
-    headerBg: 'bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-950/60 dark:to-amber-950/40',
-    iconBg: 'bg-orange-600 text-white',
-    badgeBg: 'bg-orange-100 dark:bg-orange-900/80 text-orange-900 dark:text-orange-100 border border-orange-300 dark:border-orange-700',
-    label: '🥉 Rank #3',
+    border: 'border-2 border-orange-300 dark:border-orange-700 shadow-md',
+    headerBg: 'bg-gradient-to-r from-orange-100 to-amber-100 dark:from-orange-950/80 dark:to-amber-950/60',
+    iconBg: 'bg-orange-600 text-white shadow-md font-black',
+    badgeBg: 'bg-orange-100 dark:bg-orange-900/80 text-orange-950 dark:text-orange-100 border border-orange-300 dark:border-orange-700 font-bold',
+    label: '🥉 2nd Runner-Up • Rank #3',
     isPrimary: false,
     orderClass: 'order-3 md:order-3', // Third on Mobile, Right on Desktop
   },
@@ -186,11 +186,11 @@ export default function TopLearnersPodium({ onSelectParticipant }) {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-extrabold text-gray-900 dark:text-white tracking-tight flex items-center gap-2">
-          🏆 Featured Learners
+        <h2 className="text-2xl font-black text-gray-900 dark:text-white tracking-tight flex items-center gap-2">
+          🏆 Mission Champions: Hall of Fame
         </h2>
         <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-          Participants currently holding Rank #1, Rank #2, and Rank #3 based on Total Points.
+          Honoring the highest-scoring cadets who conquered the Google Cloud Arcade 2026 expedition.
         </p>
       </div>
 

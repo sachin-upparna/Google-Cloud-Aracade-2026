@@ -27,7 +27,7 @@ import Footer from './components/Footer';
 import ConfettiEffect from './components/ConfettiEffect';
 
 const GradientDivider = () => (
-  <div className="h-1 w-full bg-gradient-to-r from-blue-500 via-emerald-500 via-amber-500 to-rose-500 rounded-full opacity-30 my-2" />
+  <div className="h-1 w-full bg-gradient-to-r from-amber-400 via-yellow-300 via-emerald-400 to-indigo-500 rounded-full opacity-40 my-2 shadow-sm" />
 );
 
 function AppContent() {
@@ -49,7 +49,7 @@ function AppContent() {
       {/* Sticky Public Header & Navbar */}
       <Header />
 
-      {/* 🏠 Overview Hero Section */}
+      {/* 🚀 Overview Hero Section */}
       <section id="overview">
         <Hero />
       </section>
@@ -67,21 +67,21 @@ function AppContent() {
       {/* Main Page Container */}
       <main className="page-container py-10 space-y-10">
 
-        {/* 📊 1. Community Stats Summary */}
+        {/* 📊 1. Mission Telemetry & Stats Summary */}
         <section id="community-stats">
           <StatsCards />
         </section>
 
         <GradientDivider />
 
-        {/* ⭐ 2. Scalable Featured Learners Podium Showcase */}
+        {/* 🏆 2. Hall of Fame (Top Champions) */}
         <section id="top-learners-podium">
           <TopLearnersPodium onSelectParticipant={handleSelect} />
         </section>
 
         <GradientDivider />
 
-        {/* 🙏 3. Facilitators' Thank You Note & Portal Closure Notice */}
+        {/* 🙏 3. Facilitators' Mission Debrief & Portal Closure Notice */}
         <section id="facilitators-note">
           <div id="milestone-guide" className="-mt-20 pt-20" />
           <FacilitatorsNote />
@@ -89,14 +89,14 @@ function AppContent() {
 
         <GradientDivider />
 
-        {/* 🏆 4. Participant Progress Table (Leaderboard) */}
+        {/* 🎖️ 4. Final Cadet Roster (Leaderboard) */}
         <section id="progress-table" className="space-y-4">
           <div>
-            <h2 className="text-2xl font-extrabold text-gray-900 dark:text-white tracking-tight flex items-center gap-2">
-              Participant Progress Dashboard
+            <h2 className="text-2xl font-black text-gray-900 dark:text-white tracking-tight flex items-center gap-2">
+              🎖️ Cadet Roster & Final Standings
             </h2>
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-              Explore progress across all cohort members — sorted by Total Points (Dense Ranking)
+              Final verified flight records across all 344 cohort cadets — ranked strictly by Total Points (Dense Ranking).
             </p>
           </div>
 
@@ -114,6 +114,8 @@ function AppContent() {
           />
         </section>
 
+        <GradientDivider />
+
         {/* 📚 5. Learning Resources & Documentation */}
         <section id="resources">
           <CommunityResources />
@@ -121,7 +123,7 @@ function AppContent() {
 
         <GradientDivider />
 
-        {/* 💯 7. Official Points System Explanation Guide */}
+        {/* 💯 6. Official Points System Explanation Guide */}
         <section id="points-guide">
           <PointsSystemGuide />
         </section>

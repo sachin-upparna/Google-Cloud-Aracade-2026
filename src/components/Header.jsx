@@ -18,14 +18,14 @@ const CloudLogo = () => (
 );
 
 const NAV_ITEMS = [
-  { id: 'overview', label: 'Overview', icon: '🏠' },
-  { id: 'community-stats', label: 'Community Statistics', icon: '📊' },
-  { id: 'top-learners-podium', label: 'Featured Learners', icon: '⭐' },
-  { id: 'facilitators-note', label: 'Facilitators Note', icon: '🙏' },
-  { id: 'progress-table', label: 'Leaderboard', icon: '🏆' },
+  { id: 'overview', label: 'Mission Overview', icon: '🚀' },
+  { id: 'community-stats', label: 'Telemetry & Stats', icon: '📊' },
+  { id: 'top-learners-podium', label: 'Hall of Fame', icon: '🏆' },
+  { id: 'facilitators-note', label: 'Facilitators Debrief', icon: '🙏' },
+  { id: 'progress-table', label: 'Cadet Roster', icon: '🎖️' },
   { id: 'resources', label: 'Learning Resources', icon: '📚' },
   { id: 'points-guide', label: 'Points System', icon: '💯' },
-  { id: 'disclaimer', label: 'About / Disclaimer', icon: 'ℹ️' },
+  { id: 'disclaimer', label: 'Mission Notice', icon: 'ℹ️' },
 ];
 
 export default function Header() {
@@ -63,11 +63,11 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 text-white sticky top-0 z-50 shadow-md">
+    <header className="bg-gradient-to-r from-slate-950 via-indigo-950 to-slate-900 text-white sticky top-0 z-50 shadow-lg border-b border-amber-500/25">
       
       {/* Top Identity Bar */}
       <div className="page-container">
-        <div className="flex items-center justify-between h-14 border-b border-white/15">
+        <div className="flex items-center justify-between h-14 border-b border-white/10">
           
           {/* Mobile Hamburger + Logo */}
           <div className="flex items-center gap-2.5">
@@ -86,20 +86,20 @@ export default function Header() {
 
             {/* Logo & Product Identity */}
             <div className="flex items-center gap-2">
-              <div className="text-white opacity-95 flex items-center justify-center p-1 rounded-lg bg-white/10">
+              <div className="text-amber-400 opacity-95 flex items-center justify-center p-1 rounded-lg bg-amber-400/10 border border-amber-400/30">
                 <CloudLogo />
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="font-bold text-sm tracking-tight text-white leading-none">
+                <span className="font-extrabold text-sm tracking-tight text-white leading-none">
                   Google Cloud Arcade
                 </span>
-                <span className="bg-white/20 text-white text-2xs px-2 py-0.5 rounded-full font-semibold leading-none">
-                  2026
+                <span className="bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 text-3xs sm:text-2xs px-2 py-0.5 rounded-full font-black uppercase tracking-wider leading-none shadow-sm">
+                  MISSION COMPLETE
                 </span>
               </div>
-              <div className="hidden sm:block h-4 w-px bg-white/30 mx-1" />
-              <span className="hidden sm:block text-2xs text-blue-100 font-medium">
-                Community Progress Portal
+              <div className="hidden sm:block h-4 w-px bg-white/20 mx-1" />
+              <span className="hidden sm:block text-2xs text-amber-200/80 font-medium">
+                Cohort 2026 Hall of Fame
               </span>
             </div>
           </div>
@@ -110,9 +110,9 @@ export default function Header() {
               href="https://go.cloudskillsboost.google/arcade"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-2xs font-semibold px-3 py-1.5 rounded-lg bg-white/15 hover:bg-white/25 border border-white/20 transition-all flex items-center gap-1.5 text-white"
+              className="text-2xs font-bold px-3 py-1.5 rounded-lg bg-amber-400/15 hover:bg-amber-400/25 border border-amber-400/30 text-amber-300 transition-all flex items-center gap-1.5"
             >
-              <span>Arcade Portal</span>
+              <span>Arcade Archive</span>
               <svg className="w-3 h-3 opacity-80" viewBox="0 0 12 12" fill="none" stroke="currentColor">
                 <path d="M3.5 3h5v5M8.5 3.5L3.5 8.5" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
@@ -121,7 +121,7 @@ export default function Header() {
             {/* Dark Mode Toggle */}
             <button
               onClick={toggleDarkMode}
-              className="p-1.5 rounded-lg bg-white/15 hover:bg-white/25 border border-white/20 transition-all text-white"
+              className="p-1.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/15 transition-all text-white"
               title={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
               aria-label="Toggle dark mode"
             >
@@ -141,7 +141,7 @@ export default function Header() {
       </div>
 
       {/* Desktop Sticky Navigation Bar Links (Hidden on Mobile) */}
-      <div className="hidden md:block bg-black/10 backdrop-blur-md overflow-x-auto no-scrollbar">
+      <div className="hidden md:block bg-black/30 backdrop-blur-md overflow-x-auto no-scrollbar border-t border-white/5">
         <div className="page-container">
           <nav className="flex items-center gap-1 py-1.5 min-w-max text-xs">
             {NAV_ITEMS.map((item) => {
@@ -150,10 +150,10 @@ export default function Header() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-3 py-1 rounded-full font-semibold transition-all flex items-center gap-1.5 ${
+                  className={`px-3 py-1 rounded-full font-bold transition-all flex items-center gap-1.5 ${
                     isActive
-                      ? 'bg-white text-blue-900 shadow-sm'
-                      : 'text-blue-100 hover:bg-white/15 hover:text-white'
+                      ? 'bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 shadow-md ring-1 ring-amber-300'
+                      : 'text-slate-300 hover:bg-white/10 hover:text-white'
                   }`}
                 >
                   <span>{item.icon}</span>
@@ -178,12 +178,17 @@ export default function Header() {
           <div className="fixed top-0 left-0 bottom-0 w-72 max-w-[80vw] bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 shadow-2xl z-50 flex flex-col justify-between overflow-y-auto">
             
             {/* Drawer Header */}
-            <div className="p-4 bg-gradient-to-r from-blue-700 to-indigo-700 text-white flex items-center justify-between">
+            <div className="p-4 bg-gradient-to-r from-slate-950 via-indigo-950 to-slate-900 border-b border-amber-500/30 text-white flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <CloudLogo />
+                <div className="text-amber-400 p-1 rounded-lg bg-amber-400/10 border border-amber-400/30">
+                  <CloudLogo />
+                </div>
                 <div>
-                  <h3 className="font-bold text-sm leading-tight">Google Cloud Arcade</h3>
-                  <p className="text-2xs text-blue-200">Community Progress Portal</p>
+                  <h3 className="font-extrabold text-sm leading-tight text-white flex items-center gap-1.5">
+                    <span>Arcade 2026</span>
+                    <span className="text-3xs bg-amber-400 text-slate-950 px-1.5 py-0.2 rounded font-black">COMPLETE</span>
+                  </h3>
+                  <p className="text-2xs text-amber-200/80">Cohort Hall of Fame</p>
                 </div>
               </div>
               <button
@@ -199,8 +204,8 @@ export default function Header() {
 
             {/* Drawer Navigation Links */}
             <div className="p-3 space-y-1 flex-1">
-              <p className="px-3 py-1.5 text-2xs font-extrabold uppercase tracking-wider text-gray-400 dark:text-gray-500">
-                Navigation Menu
+              <p className="px-3 py-1.5 text-2xs font-extrabold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+                Mission Flight Plan
               </p>
 
               {NAV_ITEMS.map((item) => {
@@ -209,9 +214,9 @@ export default function Header() {
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-semibold text-xs transition-all text-left ${
+                    className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl font-bold text-xs transition-all text-left ${
                       isActive
-                        ? 'bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 font-bold border border-blue-200 dark:border-blue-800'
+                        ? 'bg-amber-400/20 text-amber-900 dark:text-amber-300 font-extrabold border border-amber-400/50 shadow-sm'
                         : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                     }`}
                   >
@@ -223,13 +228,13 @@ export default function Header() {
             </div>
 
             {/* Drawer Footer */}
-            <div className="p-4 border-t border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/40 text-2xs text-gray-500 dark:text-gray-400 space-y-1">
-              <p className="font-semibold text-gray-800 dark:text-gray-200">
-                Google Cloud Arcade Facilitators
+            <div className="p-4 border-t border-gray-100 dark:border-gray-800 bg-slate-50 dark:bg-slate-900/60 text-2xs text-gray-500 dark:text-gray-400 space-y-1">
+              <p className="font-extrabold text-gray-900 dark:text-white flex items-center gap-1.5">
+                <span>🎖️ Mission Facilitators</span>
               </p>
-              <p>Sachin Upparna · Vikas A. L.</p>
-              <p className="italic text-blue-600 dark:text-blue-400 pt-1">
-                "Learn · Build · Grow Together"
+              <p className="text-slate-700 dark:text-slate-300">Sachin Upparna · Vikas A. L.</p>
+              <p className="italic text-amber-600 dark:text-amber-400 pt-1 font-medium">
+                "Mission Complete · Well Done Cadets!"
               </p>
             </div>
 

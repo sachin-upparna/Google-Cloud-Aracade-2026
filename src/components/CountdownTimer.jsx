@@ -41,31 +41,35 @@ export default function CountdownTimer() {
 
   if (timeLeft.isEnded) {
     return (
-      <div className="relative overflow-hidden bg-gradient-to-r from-blue-900/40 via-indigo-900/40 to-purple-900/40 backdrop-blur-md border-2 border-amber-400/50 rounded-2xl p-4 sm:p-5 shadow-xl text-white">
-        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-          <div className="space-y-2 min-w-0 flex-1">
+      <div className="relative overflow-hidden bg-gradient-to-r from-amber-950/40 via-slate-900/80 to-indigo-950/60 backdrop-blur-md border-2 border-amber-400/80 rounded-2xl p-4 sm:p-6 shadow-2xl text-white">
+        {/* Ambient golden victory glow */}
+        <div className="absolute -right-8 -top-8 w-40 h-40 bg-amber-400/15 rounded-full blur-2xl pointer-events-none" />
+        <div className="absolute -left-8 -bottom-8 w-40 h-40 bg-emerald-400/10 rounded-full blur-2xl pointer-events-none" />
+
+        <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-5">
+          <div className="space-y-2.5 min-w-0 flex-1">
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-3xs sm:text-2xs font-extrabold bg-emerald-400 text-gray-900 uppercase tracking-wider shadow-sm">
-                🏁 Final Official Update
+              <span className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-3xs sm:text-2xs font-black bg-gradient-to-r from-emerald-400 to-teal-400 text-slate-950 uppercase tracking-wider shadow-sm">
+                <span>✅</span> MISSION ACCOMPLISHED
               </span>
-              <span className="text-3xs sm:text-xs font-semibold text-emerald-200">
-                Published 18 September 2026
+              <span className="text-3xs sm:text-xs font-bold text-amber-300">
+                Sealed & Finalized: 18 September 2026
               </span>
             </div>
             
-            <h3 className="text-lg sm:text-2xl font-black tracking-tight text-white leading-snug">
-              🎉 Final Google Cloud Arcade 2026 Standings Are Live!
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight text-white leading-snug">
+              🎉 Cohort 2026 Flight Log Sealed: Final Standings Live!
             </h3>
 
-            <p className="text-xs sm:text-sm text-blue-100 font-normal leading-relaxed">
-              This is the <strong>official final update</strong> of the Google Cloud Arcade 2026 leaderboard. All Arcade Games, Skill Badges, and milestone bonus points are finalized and locked in.
+            <p className="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed">
+              Every Arcade Game, Skill Badge, and bonus milestone is finalized and permanently locked in. All <strong>344 cloud cadets</strong> have successfully crossed the finish line!
             </p>
 
             {/* Note about October 2nd week closure */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-amber-400/15 border border-amber-400/30 text-amber-200 text-xs font-semibold">
+            <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-400/15 border border-amber-400/40 text-amber-200 text-xs font-semibold">
               <span className="text-base flex-shrink-0">⚠️</span>
               <span>
-                <strong>Portal Closure Notice:</strong> This website will be officially closed on or before the <strong className="text-white underline decoration-amber-400">2nd week of October 2026</strong>.
+                <strong>Mission Decommissioning:</strong> This portal will officially sunset on or before the <strong className="text-white underline decoration-amber-400">2nd week of October 2026</strong>. Cadets should take their final screenshots.
               </span>
             </div>
           </div>
@@ -73,23 +77,23 @@ export default function CountdownTimer() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2.5 flex-shrink-0 pt-1 lg:pt-0">
             <button
               onClick={() => scrollToSection('top-learners-podium')}
-              className="px-3.5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-gray-900 font-extrabold text-xs flex items-center justify-center gap-1.5 transition-all shadow-md active:scale-[0.98]"
+              className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 to-yellow-400 hover:from-amber-300 hover:to-yellow-300 text-slate-950 font-black text-xs flex items-center justify-center gap-1.5 transition-all shadow-md active:scale-[0.98]"
             >
-              <span>⭐ Featured Learners</span>
+              <span>🏆 Hall of Fame</span>
               <span>→</span>
             </button>
             <button
               onClick={() => scrollToSection('facilitators-note')}
-              className="px-3.5 py-2.5 rounded-xl bg-blue-500 hover:bg-blue-400 text-white font-extrabold text-xs flex items-center justify-center gap-1.5 transition-all shadow-md active:scale-[0.98]"
+              className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-black text-xs flex items-center justify-center gap-1.5 transition-all shadow-md active:scale-[0.98]"
             >
-              <span>🙏 Facilitators' Note</span>
+              <span>🙏 Facilitators' Debrief</span>
               <span>→</span>
             </button>
             <button
               onClick={() => scrollToSection('progress-table')}
-              className="px-3.5 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 border border-white/25 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-[0.98]"
+              className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-[0.98]"
             >
-              <span>🏆 Leaderboard</span>
+              <span>🎖️ Cadet Roster</span>
               <span>→</span>
             </button>
           </div>

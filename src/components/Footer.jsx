@@ -15,14 +15,19 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           {/* Left */}
           <div>
-            <p className="text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>
-              Google Cloud Arcade Community Progress Portal 2026
-            </p>
+            <div className="flex items-center gap-2">
+              <p className="text-sm font-extrabold" style={{ color: 'var(--text-primary)' }}>
+                Google Cloud Arcade 2026
+              </p>
+              <span className="text-3xs bg-amber-400 text-slate-950 px-2 py-0.5 rounded-full font-black uppercase tracking-wider">
+                MISSION COMPLETE
+              </span>
+            </div>
             <p className="text-xs mt-1" style={{ color: 'var(--text-tertiary)' }}>
-              Facilitators: Sachin Upparna · Vikas A. L.
+              Mission Facilitators: Sachin Upparna · Vikas A. L.
             </p>
             <p className="text-xs mt-0.5 italic" style={{ color: 'var(--text-tertiary)' }}>
-              "Learn · Build · Grow Together"
+              "Learn · Build · Grow Together — Expedition Completed 🚀"
             </p>
           </div>
 
@@ -31,8 +36,8 @@ export default function Footer() {
             {['#1a73e8', '#d93025', '#f9ab00', '#188038'].map(c => (
               <div key={c} className="w-2 h-2 rounded-full" style={{ background: c }} />
             ))}
-            <span className="ml-2 text-xs" style={{ color: 'var(--text-tertiary)' }}>
-              Community Portal
+            <span className="ml-2 text-xs font-bold text-amber-600 dark:text-amber-400">
+              🎖️ Hall of Fame
             </span>
           </div>
         </div>
@@ -42,10 +47,10 @@ export default function Footer() {
           style={{ borderColor: 'var(--border-subtle)' }}
         >
           <p className="text-xs" style={{ color: 'var(--text-tertiary)' }}>
-            Community-managed Google Cloud Arcade progress tracking. This portal will be officially closed on or before the 2nd week of October 2026.
+            Mission Decommissioning Protocol: This community portal will permanently close on or before the 2nd week of October 2026.
           </p>
-          <p className="text-xs font-semibold text-amber-600 dark:text-amber-400">
-            Thank you for being part of this cohort! 💙
+          <p className="text-xs font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1">
+            <span>🏆</span> Congratulations to all 344 cadets on completing the mission!
           </p>
         </div>
       </div>

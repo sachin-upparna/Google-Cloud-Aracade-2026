@@ -54,24 +54,24 @@ export default function Hero() {
     : "Keep learning and building your cloud skills.";
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-700 text-white shadow-md transition-all">
-      {/* Ambient background circles */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-15">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-blue-300 blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-emerald-400 blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-amber-300 blur-3xl" />
+    <div className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 border-b border-amber-500/30 text-white shadow-2xl transition-all">
+      {/* Ambient cosmic starlight and nebulae */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-25">
+        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-amber-400/20 blur-3xl" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-emerald-500/20 blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-indigo-500/20 blur-3xl" />
       </div>
 
       <div className="page-container py-8 relative z-10 space-y-6">
 
         {/* Announcement Marquee Bar */}
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-2.5 flex items-center justify-between gap-3 text-sm shadow-inner">
+        <div className="bg-black/40 backdrop-blur-md border border-amber-400/30 rounded-xl px-4 py-2.5 flex items-center justify-between gap-3 text-sm shadow-inner">
           <div className="flex items-center gap-2.5 min-w-0 flex-1">
-            <span className="flex-shrink-0 bg-yellow-400 text-gray-900 font-bold text-2xs uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-sm">
-              Announcement
+            <span className="flex-shrink-0 bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 font-black text-2xs uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-sm flex items-center gap-1">
+              <span>🎖️</span> MISSION LOG
             </span>
             <p
-              className="text-white text-sm font-medium truncate transition-opacity duration-300"
+              className="text-amber-100 text-sm font-medium truncate transition-opacity duration-300"
               style={{ opacity: fadeAnnounce ? 1 : 0 }}
             >
               {currentAnnouncement}
@@ -84,7 +84,7 @@ export default function Hero() {
                   key={i}
                   onClick={() => setAnnouncementIdx(i)}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    i === announcementIdx ? 'bg-white w-4' : 'bg-white/40 hover:bg-white/60'
+                    i === announcementIdx ? 'bg-amber-400 w-4' : 'bg-white/40 hover:bg-white/60'
                   }`}
                   aria-label={`Announcement ${i + 1}`}
                 />
@@ -93,7 +93,7 @@ export default function Hero() {
           )}
         </div>
 
-        {/* ⏳ Deadline Countdown Timer Section */}
+        {/* ⏳ Mission Status & Sunset Protocol Banner */}
         <CountdownTimer />
 
         {/* Main Welcome Hero Content */}
@@ -101,29 +101,31 @@ export default function Hero() {
           
           {/* Title & Tagline */}
           <div className="max-w-2xl space-y-3">
-            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider bg-white/15 text-blue-100 px-3 py-1 rounded-full border border-white/20">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              Official Facilitator Community Portal 2026
+            <div className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider bg-amber-400/20 text-amber-300 px-3.5 py-1 rounded-full border border-amber-400/40 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+              🎖️ MISSION COMPLETE • COHORT 2026
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight text-white drop-shadow-sm">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight text-white drop-shadow-md">
               Google Cloud Arcade <br className="hidden sm:block" />
-              <span className="text-blue-100">Community Progress</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400">
+                Mission Accomplished 🏆
+              </span>
             </h1>
-            <p className="text-blue-100 text-base sm:text-lg font-normal leading-relaxed">
-              Track your learning journey. Celebrate milestones. Keep building with the community.
+            <p className="text-slate-200 text-base sm:text-lg font-normal leading-relaxed">
+              The 2026 expedition has reached its final destination! 344 cloud explorers conquered quests, built cloud architectures, and secured their permanent place in the Hall of Fame.
             </p>
-            <div className="flex items-center gap-4 pt-1 text-xs text-blue-200">
-              <span>Facilitators: <strong className="text-white">Sachin Upparna</strong> & <strong className="text-white">Vikas A. L.</strong></span>
+            <div className="flex items-center gap-4 pt-1 text-xs text-amber-200/90 font-medium">
+              <span>Mission Facilitators: <strong className="text-white underline decoration-amber-400/60">Sachin Upparna</strong> & <strong className="text-white underline decoration-amber-400/60">Vikas A. L.</strong></span>
             </div>
           </div>
 
-          {/* Rotating Motivational Quote Card */}
-          <div className="lg:w-80 bg-white/10 backdrop-blur-md border border-white/25 rounded-2xl p-5 shadow-lg flex flex-col justify-between gap-3 flex-shrink-0">
-            <div className="flex items-center justify-between text-xs text-blue-200">
-              <span className="font-semibold uppercase tracking-wider text-yellow-300 flex items-center gap-1">
-                ⭐ Daily Inspiration
+          {/* Rotating Motivational Quote Card / Flight Log */}
+          <div className="lg:w-80 bg-black/40 backdrop-blur-md border border-amber-400/30 rounded-2xl p-5 shadow-xl flex flex-col justify-between gap-3 flex-shrink-0">
+            <div className="flex items-center justify-between text-xs text-amber-200">
+              <span className="font-extrabold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
+                ⭐ Final Flight Reflection
               </span>
-              <span className="text-base">☁️</span>
+              <span className="text-base">🚀</span>
             </div>
             <p
               className="text-sm font-medium text-white italic leading-snug transition-opacity duration-300"
@@ -138,7 +140,7 @@ export default function Hero() {
                     key={i}
                     onClick={() => setQuoteIdx(i)}
                     className={`w-1.5 h-1.5 rounded-full transition-all ${
-                      i === quoteIdx ? 'bg-yellow-300 w-3' : 'bg-white/40'
+                      i === quoteIdx ? 'bg-amber-400 w-3' : 'bg-white/40'
                     }`}
                     aria-label={`Quote ${i + 1}`}
                   />
@@ -150,37 +152,32 @@ export default function Hero() {
         </div>
 
         {/* Official Point Calculation Disclaimer Card */}
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 sm:p-5 space-y-2 text-blue-50 text-xs">
-          <div className="flex items-center gap-2 font-bold text-white uppercase tracking-wider text-xs">
-            <svg viewBox="0 0 20 20" width="16" height="16" fill="currentColor" className="text-yellow-300 flex-shrink-0">
+        <div className="bg-black/35 backdrop-blur-md border border-amber-400/25 rounded-2xl p-4 sm:p-5 space-y-2 text-slate-200 text-xs">
+          <div className="flex items-center gap-2 font-bold text-amber-300 uppercase tracking-wider text-xs">
+            <svg viewBox="0 0 20 20" width="16" height="16" fill="currentColor" className="text-amber-400 flex-shrink-0">
               <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 4a1 1 0 110 2 1 1 0 010-2zm1 8H9v-5h2v5z"/>
             </svg>
-            <span>Point Calculation Disclaimer</span>
+            <span>Official Flight Log & Points Verification</span>
           </div>
           <p className="leading-relaxed">
-            The points displayed on this dashboard are calculated automatically based on the official Google Cloud Arcade Facilitator point system and the latest CSV provided by Google.
+            All points displayed on this mission portal are calculated automatically based on the official Google Cloud Arcade Facilitator point system and the finalized CSV dataset.
           </p>
-          <p className="leading-relaxed">
-            While every effort has been made to match Google's official calculations, these values are generated automatically and may not always be 100% accurate due to changes in program rules or data interpretation.
-          </p>
-          <p className="leading-relaxed font-semibold text-white">
-            Please verify your final points manually using the official Google Cloud Arcade Facilitator points system and your latest progress report.
+          <p className="leading-relaxed font-medium text-slate-300">
+            Standings are locked in. Rankings are strictly determined by pure total points earned across the 2026 cohort.
           </p>
         </div>
 
         {/* Timestamp & Disclaimer Bar */}
-        <div className="pt-3 border-t border-white/15 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-blue-100">
+        <div className="pt-3 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs text-slate-300">
           <div className="flex items-center gap-2">
-            <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <circle cx="8" cy="8" r="6.5"/>
-              <path d="M8 4.5V8l2.5 1.5" strokeLinecap="round"/>
-            </svg>
+            <span className="w-2 h-2 rounded-full bg-emerald-400" />
             <span>
-              <strong>Last Updated:</strong> {lastUpdated ?? (loading ? 'Loading…' : 'Regularly updated')}
+              <strong>Final Flight Log Verified:</strong> {lastUpdated ?? (loading ? 'Loading…' : 'Final Update (18 Sep 2026)')}
             </span>
           </div>
-          <p className="italic text-amber-200 font-medium">
-            This is the final official update for the cohort. The portal will be closed on or before the 2nd week of October 2026.
+          <p className="italic text-amber-300 font-semibold flex items-center gap-1.5">
+            <span>⚠️</span>
+            <span>Mission Sunset Protocol: Decommissioning on or before 2nd week of October 2026.</span>
           </p>
         </div>
 

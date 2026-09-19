@@ -190,7 +190,7 @@ export default function TopLearnersPodium({ onSelectParticipant }) {
           🏆 Mission Champions: Hall of Fame
         </h2>
         <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-          Honoring the highest-scoring cadets who conquered the Google Cloud Arcade 2026 expedition.
+          Honoring the highest-scoring learners who conquered the Google Cloud Arcade 2026 mission.
         </p>
       </div>
 

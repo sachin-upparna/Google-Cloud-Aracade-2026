@@ -27,7 +27,7 @@ export default function Footer() {
               Mission Facilitators: Sachin Upparna · Vikas A. L.
             </p>
             <p className="text-xs mt-0.5 italic" style={{ color: 'var(--text-tertiary)' }}>
-              "Learn · Build · Grow Together — Expedition Completed 🚀"
+              "Learn · Build · Grow Together — Mission Accomplished 🏆"
             </p>
           </div>
 
@@ -50,7 +50,7 @@ export default function Footer() {
             Mission Decommissioning Protocol: This community portal will permanently close on or before the 2nd week of October 2026.
           </p>
           <p className="text-xs font-bold text-amber-600 dark:text-amber-400 flex items-center gap-1">
-            <span>🏆</span> Congratulations to all 344 cadets on completing the mission!
+            <span>🏆</span> Congratulations to all 344 learners on completing the mission!
           </p>
         </div>
       </div>

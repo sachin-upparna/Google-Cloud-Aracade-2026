@@ -67,7 +67,7 @@ function AppContent() {
       {/* Main Page Container */}
       <main className="page-container py-10 space-y-10">
 
-        {/* 📊 1. Mission Telemetry & Stats Summary */}
+        {/* 📊 1. Mission Milestones & Stats Summary */}
         <section id="community-stats">
           <StatsCards />
         </section>
@@ -81,7 +81,7 @@ function AppContent() {
 
         <GradientDivider />
 
-        {/* 🙏 3. Facilitators' Mission Debrief & Portal Closure Notice */}
+        {/* 🙏 3. Facilitators' Final Note & Portal Closure Notice */}
         <section id="facilitators-note">
           <div id="milestone-guide" className="-mt-20 pt-20" />
           <FacilitatorsNote />
@@ -89,14 +89,14 @@ function AppContent() {
 
         <GradientDivider />
 
-        {/* 🎖️ 4. Final Cadet Roster (Leaderboard) */}
+        {/* 🏆 4. Final Leaderboard & Standings */}
         <section id="progress-table" className="space-y-4">
           <div>
             <h2 className="text-2xl font-black text-gray-900 dark:text-white tracking-tight flex items-center gap-2">
-              🎖️ Cadet Roster & Final Standings
+              🏆 Final Leaderboard & Standings
             </h2>
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-              Final verified flight records across all 344 cohort cadets — ranked strictly by Total Points (Dense Ranking).
+              Final verified standings across all 344 cohort members — ranked strictly by Total Points (Dense Ranking).
             </p>
           </div>
 

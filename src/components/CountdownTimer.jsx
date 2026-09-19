@@ -58,18 +58,18 @@ export default function CountdownTimer() {
             </div>
             
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight text-white leading-snug">
-              🎉 Cohort 2026 Flight Log Sealed: Final Standings Live!
+              🎉 Cohort 2026 Mission Accomplished: Final Standings Live!
             </h3>
 
             <p className="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed">
-              Every Arcade Game, Skill Badge, and bonus milestone is finalized and permanently locked in. All <strong>344 cloud cadets</strong> have successfully crossed the finish line!
+              Every Arcade Game, Skill Badge, and bonus milestone is finalized and permanently locked in. All <strong>344 learners</strong> have successfully crossed the finish line!
             </p>
 
             {/* Note about October 2nd week closure */}
             <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-amber-400/15 border border-amber-400/40 text-amber-200 text-xs font-semibold">
               <span className="text-base flex-shrink-0">⚠️</span>
               <span>
-                <strong>Mission Decommissioning:</strong> This portal will officially sunset on or before the <strong className="text-white underline decoration-amber-400">2nd week of October 2026</strong>. Cadets should take their final screenshots.
+                <strong>Mission Decommissioning:</strong> This portal will officially sunset on or before the <strong className="text-white underline decoration-amber-400">2nd week of October 2026</strong>. Please save your final screenshots and records.
               </span>
             </div>
           </div>
@@ -86,14 +86,14 @@ export default function CountdownTimer() {
               onClick={() => scrollToSection('facilitators-note')}
               className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-black text-xs flex items-center justify-center gap-1.5 transition-all shadow-md active:scale-[0.98]"
             >
-              <span>🙏 Facilitators' Debrief</span>
+              <span>🙏 Facilitators' Note</span>
               <span>→</span>
             </button>
             <button
               onClick={() => scrollToSection('progress-table')}
               className="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-[0.98]"
             >
-              <span>🎖️ Cadet Roster</span>
+              <span>⭐ Leaderboard</span>
               <span>→</span>
             </button>
           </div>

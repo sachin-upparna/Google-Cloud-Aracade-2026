@@ -50,7 +50,7 @@ export default function SearchAndFilter({ search, setSearch, activeFilter, setAc
           type="search"
           id="participant-search"
           className="search-input"
-          placeholder="Search cadets by name or rank…"
+          placeholder="Search learners by name or rank…"
           value={search}
           onChange={e => setSearch(e.target.value)}
           autoComplete="off"

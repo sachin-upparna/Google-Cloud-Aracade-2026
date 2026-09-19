@@ -19,15 +19,15 @@ export default function FacilitatorsNote() {
       <div className="relative z-10 space-y-2">
         <div className="flex items-center gap-2 flex-wrap">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-2xs font-black bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 uppercase tracking-wider shadow-sm">
-            <span>🎖️</span> MISSION DEBRIEF & ADDRESS
+            <span>🎖️</span> FACILITATORS' FINAL ADDRESS
           </span>
           <span className="text-2xs sm:text-xs font-bold text-amber-700 dark:text-amber-300">
-            Cohort 2026 Flight Log Sealed
+            Cohort 2026 Standings Sealed
           </span>
         </div>
 
         <h2 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white tracking-tight leading-tight">
-          Mission Accomplished: A Commendation to All Explorers! 🙏
+          Mission Accomplished: A Thank You to All Learners! 🙏
         </h2>
         <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-medium">
           From Mission Facilitators <strong className="text-gray-900 dark:text-white">Sachin Upparna</strong> & <strong className="text-gray-900 dark:text-white">Vikas A. L.</strong>
@@ -37,16 +37,16 @@ export default function FacilitatorsNote() {
       {/* Facilitator Appreciation Message */}
       <div className="relative z-10 space-y-3.5 text-xs sm:text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
         <p className="font-semibold text-gray-900 dark:text-white">
-          To our 344 Brilliant Cloud Explorers & Cadets,
+          To our 344 Brilliant Learners & Participants,
         </p>
         <p>
           As the <strong>Google Cloud Arcade 2026</strong> mission concludes with this final <strong>September 18th update</strong>, we salute your tenacity, grit, and tireless passion for cloud computing.
         </p>
         <p>
-          Throughout this expedition, you dove headfirst into uncharted cloud territories — building architectures, configuring Virtual Machines, debugging Kubernetes clusters, mastering BigQuery analytics, and creating intelligent solutions with Generative AI and Gemini.
+          Throughout this Arcade journey, you dove headfirst into hands-on cloud labs — building architectures, configuring Virtual Machines, debugging Kubernetes clusters, mastering BigQuery analytics, and creating intelligent solutions with Generative AI and Gemini.
         </p>
         <p>
-          Whether you earned your first Skill Badge or achieved the prestigious <strong>Ultimate Milestone</strong>, you have acquired genuine, industry-grade capabilities. The skills you forged here will stay with you long after this mission log is closed. It has been an honor facilitating your voyage!
+          Whether you earned your first Skill Badge or achieved the prestigious <strong>Ultimate Milestone</strong>, you have acquired genuine, industry-grade capabilities. The skills you forged here will empower your tech careers for years to come. It has been an honor facilitating this cohort!
         </p>
       </div>
 

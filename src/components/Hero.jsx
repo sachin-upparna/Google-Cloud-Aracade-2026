@@ -68,7 +68,7 @@ export default function Hero() {
         <div className="bg-black/40 backdrop-blur-md border border-amber-400/30 rounded-xl px-4 py-2.5 flex items-center justify-between gap-3 text-sm shadow-inner">
           <div className="flex items-center gap-2.5 min-w-0 flex-1">
             <span className="flex-shrink-0 bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 font-black text-2xs uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-sm flex items-center gap-1">
-              <span>🎖️</span> MISSION LOG
+              <span>🎖️</span> MISSION UPDATE
             </span>
             <p
               className="text-amber-100 text-sm font-medium truncate transition-opacity duration-300"
@@ -112,20 +112,20 @@ export default function Hero() {
               </span>
             </h1>
             <p className="text-slate-200 text-base sm:text-lg font-normal leading-relaxed">
-              The 2026 expedition has reached its final destination! 344 cloud explorers conquered quests, built cloud architectures, and secured their permanent place in the Hall of Fame.
+              The 2026 Arcade mission is officially accomplished! 344 learners tackled challenges, mastered Google Cloud skills, and earned their permanent place in the Hall of Fame.
             </p>
             <div className="flex items-center gap-4 pt-1 text-xs text-amber-200/90 font-medium">
               <span>Mission Facilitators: <strong className="text-white underline decoration-amber-400/60">Sachin Upparna</strong> & <strong className="text-white underline decoration-amber-400/60">Vikas A. L.</strong></span>
             </div>
           </div>
 
-          {/* Rotating Motivational Quote Card / Flight Log */}
+          {/* Rotating Motivational Quote Card */}
           <div className="lg:w-80 bg-black/40 backdrop-blur-md border border-amber-400/30 rounded-2xl p-5 shadow-xl flex flex-col justify-between gap-3 flex-shrink-0">
             <div className="flex items-center justify-between text-xs text-amber-200">
               <span className="font-extrabold uppercase tracking-wider text-amber-400 flex items-center gap-1.5">
-                ⭐ Final Flight Reflection
+                ⭐ Mission Reflection
               </span>
-              <span className="text-base">🚀</span>
+              <span className="text-base">✨</span>
             </div>
             <p
               className="text-sm font-medium text-white italic leading-snug transition-opacity duration-300"
@@ -157,7 +157,7 @@ export default function Hero() {
             <svg viewBox="0 0 20 20" width="16" height="16" fill="currentColor" className="text-amber-400 flex-shrink-0">
               <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 4a1 1 0 110 2 1 1 0 010-2zm1 8H9v-5h2v5z"/>
             </svg>
-            <span>Official Flight Log & Points Verification</span>
+            <span>Official Points Calculation & Standings</span>
           </div>
           <p className="leading-relaxed">
             All points displayed on this mission portal are calculated automatically based on the official Google Cloud Arcade Facilitator point system and the finalized CSV dataset.
@@ -172,7 +172,7 @@ export default function Hero() {
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400" />
             <span>
-              <strong>Final Flight Log Verified:</strong> {lastUpdated ?? (loading ? 'Loading…' : 'Final Update (18 Sep 2026)')}
+              <strong>Final Standings Verified:</strong> {lastUpdated ?? (loading ? 'Loading…' : 'Final Update (18 Sep 2026)')}
             </span>
           </div>
           <p className="italic text-amber-300 font-semibold flex items-center gap-1.5">

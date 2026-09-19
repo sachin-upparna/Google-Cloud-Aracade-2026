@@ -18,11 +18,11 @@ const CloudLogo = () => (
 );
 
 const NAV_ITEMS = [
-  { id: 'overview', label: 'Mission Overview', icon: '🚀' },
-  { id: 'community-stats', label: 'Telemetry & Stats', icon: '📊' },
+  { id: 'overview', label: 'Mission Overview', icon: '🎯' },
+  { id: 'community-stats', label: 'Cohort Stats', icon: '📊' },
   { id: 'top-learners-podium', label: 'Hall of Fame', icon: '🏆' },
-  { id: 'facilitators-note', label: 'Facilitators Debrief', icon: '🙏' },
-  { id: 'progress-table', label: 'Cadet Roster', icon: '🎖️' },
+  { id: 'facilitators-note', label: 'Facilitators Note', icon: '🙏' },
+  { id: 'progress-table', label: 'Leaderboard', icon: '⭐' },
   { id: 'resources', label: 'Learning Resources', icon: '📚' },
   { id: 'points-guide', label: 'Points System', icon: '💯' },
   { id: 'disclaimer', label: 'Mission Notice', icon: 'ℹ️' },
@@ -205,7 +205,7 @@ export default function Header() {
             {/* Drawer Navigation Links */}
             <div className="p-3 space-y-1 flex-1">
               <p className="px-3 py-1.5 text-2xs font-extrabold uppercase tracking-wider text-amber-600 dark:text-amber-400">
-                Mission Flight Plan
+                Mission Navigation
               </p>
 
               {NAV_ITEMS.map((item) => {
@@ -234,7 +234,7 @@ export default function Header() {
               </p>
               <p className="text-slate-700 dark:text-slate-300">Sachin Upparna · Vikas A. L.</p>
               <p className="italic text-amber-600 dark:text-amber-400 pt-1 font-medium">
-                "Mission Complete · Well Done Cadets!"
+                "Mission Accomplished · Well Done Everyone! 🏆"
               </p>
             </div>
 

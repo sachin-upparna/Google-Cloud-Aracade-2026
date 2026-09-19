@@ -99,9 +99,9 @@ export default function StatsCards() {
 
   const metrics = [
     {
-      label: '👨‍🚀 Cadets Enrolled',
+      label: '👥 Total Learners',
       value: stats.total ?? 0,
-      sublabel: 'Verified cohort explorers',
+      sublabel: 'Verified cohort participants',
       icon: Icons.people,
       theme: {
         border: 'border-blue-200 dark:border-blue-900/60 hover:border-blue-400 dark:hover:border-blue-500',
@@ -110,9 +110,9 @@ export default function StatsCards() {
       },
     },
     {
-      label: '🎮 Quests Conquered',
+      label: '🎮 Arcade Games Completed',
       value: stats.totalArcadeGames ?? 0,
-      sublabel: 'Completed Arcade games',
+      sublabel: 'Completed challenge games',
       icon: Icons.games,
       theme: {
         border: 'border-emerald-200 dark:border-emerald-900/60 hover:border-emerald-400 dark:hover:border-emerald-500',
@@ -121,7 +121,7 @@ export default function StatsCards() {
       },
     },
     {
-      label: '🛡️ Skill Badges Secured',
+      label: '🛡️ Skill Badges Earned',
       value: stats.totalSkillBadges ?? 0,
       sublabel: 'Official cloud credentials',
       icon: Icons.badges,
@@ -132,9 +132,9 @@ export default function StatsCards() {
       },
     },
     {
-      label: '🎯 Milestone Cadets',
+      label: '🎯 Milestone Achievers',
       value: stats.milestoneCount ?? 0,
-      sublabel: 'Milestones 1, 2, 3 achieved',
+      sublabel: 'Milestones 1, 2, 3 reached',
       icon: Icons.star,
       theme: {
         border: 'border-orange-200 dark:border-orange-900/60 hover:border-orange-400 dark:hover:border-orange-500',
@@ -154,7 +154,7 @@ export default function StatsCards() {
       },
     },
     {
-      label: '🤖 AI Agents Verified',
+      label: '🤖 AI Agent Badges',
       value: stats.aiAgentCount ?? 0,
       sublabel: 'GenAI Agent badge earners',
       icon: Icons.aiBot,
@@ -183,10 +183,10 @@ export default function StatsCards() {
     <div className="space-y-5">
       <div>
         <h2 className="text-2xl font-black text-gray-900 dark:text-white tracking-tight flex items-center gap-2">
-          📊 Mission Telemetry & Cohort Milestones
+          📊 Mission Milestones & Community Stats
         </h2>
         <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-          Final cumulative achievements earned across all 344 cloud cadets in the 2026 flight log.
+          Final cumulative achievements accomplished by all 344 learners across the Google Cloud Arcade 2026 cohort.
         </p>
       </div>
 
